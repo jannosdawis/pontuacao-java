@@ -5,8 +5,8 @@ public class programa {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		int compras, atraso;
-		double ticket;
+		int qtdcompras, atraso, scorecompras;
+		double volumecompras;
 		char tipocompra;
 		
 	// CABEÇALHO
@@ -17,9 +17,9 @@ public class programa {
 	
 	// LEITURA DO VOLUME
 		System.out.print("Quantas compras o cliente fez no último ano? ");
-		compras = sc.nextInt();
+		qtdcompras = sc.nextInt();
 		System.out.print("Qual o ticket médio? ");
-		ticket = sc.nextDouble();
+		volumecompras = sc.nextDouble();
 		System.out.println("");
 		
 	// LEITURA DOS OUTROS DADOS
@@ -27,7 +27,21 @@ public class programa {
 		atraso = sc.nextInt();
 		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
 		tipocompra = sc.next().charAt(0);
-		
+	
+	// SCORE DE VOLUME DE COMPRAS
+		System.out.println("");
+		if (volumecompras == 0){
+			scorecompras = 0;
+		}else if (volumecompras <= 3000.00){
+				scorecompras = 20;
+				if (qtdcompras > 2){
+					scorecompras = 40;
+				}
+		}else{
+			scorecompras = 60;
+		}
+		System.out.println("Score de volume de compras = " + scorecompras + " pontos");
+		System.out.println("");
 		
 		
 		sc.close();
