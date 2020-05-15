@@ -5,7 +5,7 @@ public class programa {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		int qtdcompras, atraso, scorecompras, scoreinadim=0, scorepgto;
+		int qtdcompras, atraso, scorecompras, scoreinadim=0, scorepgto, scoretotal;
 		double volumecompras;
 		char tipocompra;
 		
@@ -63,6 +63,17 @@ public class programa {
 		}
 		System.out.println("Score de inadimplência = " + scoreinadim + " pontos");
 		System.out.println("Score de forma de pagamento = " + scorepgto);
+		
+	// CLASSIFICAÇÃO FINAL
+		System.out.println("");
+		scoretotal = scorecompras + scoreinadim + scorepgto;
+		if (scoretotal <=25){
+			System.out.println("Classificação final = CLIENTE BRONZE");
+		}else if((scoretotal > 25)&&(scoretotal<=75)){
+			System.out.println("Classificação final = CLIENTE PRATA");
+		}else{
+			System.out.println("Classificação final = CLIENTE OURO");
+		}
 		
 		sc.close();
 	}
