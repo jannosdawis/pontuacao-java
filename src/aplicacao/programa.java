@@ -5,7 +5,7 @@ public class programa {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		int qtdcompras, atraso, scorecompras;
+		int qtdcompras, atraso, scorecompras, scoreinadim=0, scorepgto;
 		double volumecompras;
 		char tipocompra;
 		
@@ -43,6 +43,26 @@ public class programa {
 		System.out.println("Score de volume de compras = " + scorecompras + " pontos");
 		System.out.println("");
 		
+	// SCORE DE INADIMPLÊNCIA E PAGAMENTO
+		if (qtdcompras==0){
+			scoreinadim = 0;
+		}
+		if(qtdcompras>0){
+			if(atraso>1){
+				scoreinadim = 0;
+			}else if(atraso>=1){
+				scoreinadim = 15;
+			}else{
+				scoreinadim = 30;
+			}
+		}
+		if ((tipocompra == 'd')||(tipocompra == 'D')){
+			scorepgto = 5;
+		}else{
+			scorepgto = 10;
+		}
+		System.out.println("Score de inadimplência = " + scoreinadim + " pontos");
+		System.out.println("Score de forma de pagamento = " + scorepgto);
 		
 		sc.close();
 	}
