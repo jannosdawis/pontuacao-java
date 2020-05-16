@@ -50,7 +50,7 @@ public class programa {
 		if(qtdcompras>0){
 			if(atraso>1){
 				scoreinadim = 0;
-			}else if(atraso>=1){
+			}else if(atraso==1){
 				scoreinadim = 15;
 			}else{
 				scoreinadim = 30;
